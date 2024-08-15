@@ -9,4 +9,15 @@ module.exports = merge(commonConfig, {
     hot: true,
     port: 9000,
   },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'eslint-loader',
+        },
+      },
+    ],
+  },
 });
