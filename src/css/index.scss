@@ -1,4 +1,7 @@
-body {
-  font-family: 'Roboto', sans-serif;
-  background-image: url(../assets/img/rainy-bg.jpg);
-}
+@import './container.scss';
+@import './main.scss';
+@import './fonts.scss';
+@import './catalog.scss';
+@import './button.scss';
+@import './background.scss';
+@import './volume.scss';
