@@ -4,13 +4,13 @@ import { randomBackground, replacePause } from './utilities';
 import '../css/index.scss';
 
 const body = document.getElementById('body');
-const bg = body.querySelector('.bg');
-const volumeControl = body.querySelector('.volume');
-const catalog = body.querySelector('.catalog');
+const bg: HTMLInputElement = body.querySelector('.bg');
+const volumeControl: HTMLInputElement = body.querySelector('.volume');
+const catalog: HTMLElement = body.querySelector('.catalog');
 const sound = new Audio();
 
 bg.style.backgroundImage = `url('${randomBackground(data)}')`;
-sound.volume = volumeControl.value;
+sound.volume = sound.volume = Number(volumeControl.value);
 
 for (const item in data) {
   const dataItem = data[item];
@@ -31,16 +31,19 @@ for (const item in data) {
   catalogButton.append(iconButton);
 }
 
-const allButtons = catalog.querySelectorAll('.btn');
+const allButtons: NodeListOf<HTMLButtonElement> =
+  catalog.querySelectorAll('.btn');
 
 volumeControl.addEventListener('input', function () {
-  sound.volume = volumeControl.value;
+  sound.volume = Number(volumeControl.value);
 });
 
-document.addEventListener('click', (event) => {
-  if (event.target.closest('.btn')) {
-    const button = event.target.closest('.btn');
-    const icon = button.querySelector('.icon');
+document.addEventListener('click', (event: Event) => {
+  const target = event.target as HTMLInputElement;
+
+  if (target.closest('.btn')) {
+    const button = target.closest('.btn');
+    const icon: HTMLInputElement = button.querySelector('.icon');
     const dataSet = button.getAttribute('data-info');
     bg.style.backgroundImage = `url('${data[dataSet].image}')`;
     sound.src = `${data[dataSet].sound}`;

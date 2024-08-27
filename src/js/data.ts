@@ -1,6 +1,8 @@
-export const PAUSE = '../assets/icons/pause.svg';
+import { DataType } from './models';
 
-export const data = {
+export const PAUSE: string = '../assets/icons/pause.svg';
+
+export const data: DataType = {
   rain: {
     icon: '../assets/icons/cloud-rain.svg',
     image: '../assets/img/rainy-bg.jpg',
